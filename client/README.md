@@ -1,16 +1,47 @@
-# React + Vite
+# Previous Question Paper Repository
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A full-stack web application to store, search, and manage previous examination question papers.
 
-Currently, two official plugins are available:
+## Technologies Used
+- React.js
+- Node.js
+- Express.js
+- MongoDB
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Add question papers with subject, year, semester, regulation, and exam type.
+- Store PDF links for question papers.
+- View and search question papers.
+- Filter papers by year and semester.
+- Delete question papers.
 
-## React Compiler
+## Requirements
+- Node.js and npm
+- MongoDB connection URI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How to Run
 
-## Expanding the Oxlint configuration
+### Backend
+1. Open a terminal in the project folder.
+2. Run:
+   `cd server`
+3. Install dependencies:
+   `npm install`
+4. Create a `.env` file inside the `server` folder and add:
+   `MONGO_URI=your_mongodb_connection_uri`
+5. Start the server:
+   `node server.js`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Frontend
+1. Open another terminal.
+2. Run:
+   `cd client`
+3. Install dependencies:
+   `npm install`
+4. Start React:
+   `npm run dev`
+
+Open the local URL shown in the frontend terminal.
+
+## Project Purpose
+This project provides a simple platform for organizing and accessing previous examination question papers.
