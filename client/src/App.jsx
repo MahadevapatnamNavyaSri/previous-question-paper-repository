@@ -1,8 +1,10 @@
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/question-papers';
+const API_URL =
+  'https://YOUR-RENDER-SERVICE.onrender.com/api/question-papers';
 
 function App() {
   const [papers, setPapers] = useState([]);
@@ -103,24 +105,17 @@ function App() {
       semesterFilter === '' ||
       String(paper.semester) === semesterFilter;
 
-    return (
-      matchesSubject &&
-      matchesYear &&
-      matchesSemester
-    );
+    return matchesSubject && matchesYear && matchesSemester;
   });
 
   return (
     <main className="container">
       <header>
         <h1>Previous Question Paper Repository</h1>
-        <p>
-          Find and organize your previous examination papers.
-        </p>
+        <p>Find and organize your previous examination papers.</p>
       </header>
 
       <div className="layout">
-        {/* Add Question Paper Form */}
         <section className="panel">
           <h2>Add Question Paper</h2>
 
@@ -190,17 +185,12 @@ function App() {
               required
             />
 
-            <button type="submit">
-              Add Question Paper
-            </button>
+            <button type="submit">Add Question Paper</button>
           </form>
 
-          {message && (
-            <p className="message">{message}</p>
-          )}
+          {message && <p className="message">{message}</p>}
         </section>
 
-        {/* Question Paper List and Filters */}
         <section className="panel">
           <h2>
             Available Question Papers ({filteredPapers.length})
@@ -218,9 +208,7 @@ function App() {
               type="number"
               placeholder="Filter by year"
               value={yearFilter}
-              onChange={(event) =>
-                setYearFilter(event.target.value)
-              }
+              onChange={(event) => setYearFilter(event.target.value)}
             />
           </div>
 
@@ -258,27 +246,13 @@ function App() {
           )}
 
           {filteredPapers.map((paper) => (
-            <article
-              className="paper-card"
-              key={paper._id}
-            >
+            <article className="paper-card" key={paper._id}>
               <h3>{paper.subject}</h3>
 
-              <p>
-                <strong>Year:</strong> {paper.year}
-              </p>
-
-              <p>
-                <strong>Semester:</strong> {paper.semester}
-              </p>
-
-              <p>
-                <strong>Regulation:</strong> {paper.regulation}
-              </p>
-
-              <p>
-                <strong>Exam Type:</strong> {paper.examType}
-              </p>
+              <p><strong>Year:</strong> {paper.year}</p>
+              <p><strong>Semester:</strong> {paper.semester}</p>
+              <p><strong>Regulation:</strong> {paper.regulation}</p>
+              <p><strong>Exam Type:</strong> {paper.examType}</p>
 
               <a
                 href={paper.fileUrl}
